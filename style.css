@@ -112,6 +112,11 @@ footer {
 }
 
 @media (max-width: 768px) {
+    header {
+        position: relative;
+        padding: 0.5rem;
+    }
+
     .menu-toggle {
         display: block;
         position: absolute;
@@ -127,6 +132,7 @@ footer {
         left: 0;
         background-color: #333;
         padding: 1rem 0;
+        z-index: 1000;
     }
 
     .nav-menu.active {
@@ -153,7 +159,27 @@ footer {
     }
 
     .hero {
-        padding-top: 4rem;
+        padding-top: 1rem;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .profile-photo {
+        width: 200px;
+        height: 200px;
+        margin-top: 3rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.5rem;
+    }
+
+    section {
+        padding: 2rem 1rem;
     }
 }
 
