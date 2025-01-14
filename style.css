@@ -17,6 +17,9 @@ header {
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .menu-toggle {
@@ -24,12 +27,19 @@ header {
     color: white;
     font-size: 1.5rem;
     cursor: pointer;
+    z-index: 1001;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li {
@@ -40,6 +50,7 @@ nav ul li a {
     color: white;
     text-decoration: none;
     transition: color 0.3s ease;
+    font-size: 1rem;
 }
 
 nav ul li a:hover {
@@ -112,40 +123,50 @@ footer {
 }
 
 @media (max-width: 768px) {
-    header {
-        position: relative;
-        padding: 0.5rem;
-    }
-
     .menu-toggle {
         display: block;
-        position: absolute;
-        top: 1rem;
-        left: 1rem;
     }
 
     .nav-menu {
         display: none;
-        width: 100%;
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 0;
         left: 0;
-        background-color: #333;
-        padding: 1rem 0;
-        z-index: 1000;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(51, 51, 51, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .nav-menu.active {
-        display: block;
+        display: flex;
     }
 
     nav ul {
         flex-direction: column;
-        text-align: center;
+        align-items: center;
     }
 
     nav ul li {
-        margin: 0.5rem 0;
+        margin: 1rem 0;
+    }
+
+    nav ul li a {
+        font-size: 1.2rem;
+    }
+
+    .social-links {
+        margin-top: 2rem;
+    }
+
+    header .social-links {
+        display: none;
+    }
+
+    .nav-menu .social-links {
+        display: flex;
     }
 
     .proje-container {
