@@ -9,7 +9,10 @@
 </head>
 <body>
     <header>
-        <nav>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav class="nav-menu">
             <ul>
                 <li><a href="#anasayfa">Ana Sayfa</a></li>
                 <li><a href="#hakkimda">Hakkımda</a></li>
@@ -74,5 +77,18 @@
         </div>
         <p>&copy; 2025 Mehmet Yılmaz. Tüm hakları saklıdır.</p>
     </footer>
+
+    <script>
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.nav-menu').classList.toggle('active');
+    });
+
+    // Menü linklerine tıklandığında menüyü kapat
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.remove('active');
+        });
+    });
+    </script>
 </body>
 </html> 
