@@ -60,7 +60,7 @@ header {
     border-radius: 50%;
     border: 3px solid var(--accent-color);
     object-fit: cover;
-    background-image: url('assets/profile-photo.jpg');
+    background-image: url('assets/photos/profile-photo.jpg');
     background-size: cover;
     background-position: center;
 }
