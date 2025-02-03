@@ -67,6 +67,7 @@ header {
 
 h1, h2 {
     color: var(--accent-color);
+    text-align: center;
 }
 
 .proje-container {
