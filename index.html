@@ -4,8 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mehmet Yılmaz</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .menu-toggle {
+            cursor: pointer;
+            display: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-menu .social-links {
+            margin-left: 30px; /* İletişim ile logolar arası boşluk */
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                background-color: var(--secondary-color);
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 100%;
+                padding: 25px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu ul {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .social-links {
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                margin-top: 20px; /* Artırılan boşluk */
+            }
+        }
+
+        .iletisim-bilgileri {
+            margin-bottom: 20px; /* İletişim ile logolar arası boşluk */
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,13 +83,16 @@
             <div class="social-links">
                 <a href="https://github.com/F4LD3X" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/mehmet-yilmazz-/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://bionluk.com/10mehmetyilmaz" target="_blank" title="Bionluk">
+                    <img src="assets/bionluk-logo.jpg" alt="Bionluk" style="height:20px; vertical-align:middle;">
+                </a>
             </div>
         </nav>
     </header>
 
     <main>
         <section id="anasayfa" class="hero">
-            <img src="profile-photo.jpg" alt="Mehmet Yılmaz" class="profile-photo">
+            <img src="assets/profile-photo.jpg" alt="Mehmet Yılmaz" class="profile-photo">
             <h1>Hoş Geldiniz</h1>
             <h2 class="subtitle">Mehmet Yılmaz</h2>
             <p>Bilgisayar Mühendisliği Öğrencisi</p>
@@ -74,21 +138,35 @@
         <div class="social-links">
             <a href="https://github.com/F4LD3X" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/mehmet-yilmazz-/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://bionluk.com/10mehmetyilmaz" target="_blank" title="Bionluk">
+                <img src="assets/bionluk-logo.jpg" alt="Bionluk" style="height:20px; vertical-align:middle;">
+            </a>
         </div>
         <p>&copy; 2025 Mehmet Yılmaz. Tüm hakları saklıdır.</p>
     </footer>
 
     <script>
-    document.querySelector('.menu-toggle').addEventListener('click', function() {
-        document.querySelector('.nav-menu').classList.toggle('active');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    menuToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
     });
 
-    // Menü linklerine tıklandığında menüyü kapat
     document.querySelectorAll('.nav-menu a').forEach(link => {
         link.addEventListener('click', function() {
-            document.querySelector('.nav-menu').classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
         });
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.nav-menu') && !event.target.closest('.menu-toggle')) {
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     });
     </script>
 </body>
-</html> 
+</html>
