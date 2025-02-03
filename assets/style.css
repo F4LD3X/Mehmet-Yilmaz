@@ -36,6 +36,8 @@ header {
     list-style: none;
     display: flex;
     gap: 20px;
+    align-items: center; /* Menü öğelerini ortalamak için eklendi */
+    padding: 0;          /* Kenar boşluklarını sıfırlamak için eklendi */
 }
 
 .nav-menu a {
