@@ -4,6 +4,7 @@
     --text-color: #ffffff;
     --accent-color: #00adb5;
     --hover-color: #393e46;
+    --header3-color: #02ad10c7;
 }
 
 body {
@@ -65,6 +66,11 @@ header {
     background-image: url('assets/photos/profile-photo.jpg');
     background-size: cover;
     background-position: center;
+}
+
+h3 {
+    color: var(--header3-color);
+    text-align: center;
 }
 
 h1, h2 {
